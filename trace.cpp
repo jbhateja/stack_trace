@@ -4,6 +4,8 @@
 #include <ucontext.h>
 #include <bits/wordsize.h>
 
+// 
+
 #if __WORDSIZE == 64
    typedef uint64_t regType;
    #define FRAME_REG  REG_RBP
@@ -44,6 +46,7 @@ void PrintTrace::dumpTrace(regType *fp,regType* ip,int frame) {
      dumpTrace(reinterpret_cast<regType*>(fp[0]),
           reinterpret_cast<regType*>((fp+1)[0]),frame+1);
 }
+
 
 #define TRACE            \
    do {                  \
